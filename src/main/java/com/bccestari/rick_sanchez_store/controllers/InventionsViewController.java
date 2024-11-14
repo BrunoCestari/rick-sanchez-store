@@ -12,10 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -93,11 +90,91 @@ public class InventionsViewController {
 
         return "redirect:/inventions";
 
-
-
-
-
     }
+    
+    
+    @GetMapping("/edit")
+    public String showEditPage(
+            Model model,
+            @RequestParam int id
+    ) {
+        try {
+            Invention invention = repo.findById(id).get();
+            model.addAttribute("invention", invention);
+
+            InventionDto inventionDto = new InventionDto();
+            inventionDto.setName(invention.getName());
+            inventionDto.setCategory(invention.getCategory());
+            inventionDto.setPrice(invention.getPrice());
+            inventionDto.setDescription(invention.getDescription());
+
+            model.addAttribute("inventionDto", inventionDto);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            return "redirect:/inventions";
+        }
+
+        return "inventions/EditInvention";
+    }
+
+    @PostMapping("/edit")
+    public String updateInvention(
+            Model model,
+            @RequestParam int id,
+            @Valid @ModelAttribute InventionDto inventionDto,
+            BindingResult result
+    ) {
+
+        try {
+            Invention invention = repo.findById(id).get();
+            model.addAttribute("invention", invention);
+
+            if (result.hasErrors()) {
+                return "inventions/EditInvention";
+            }
+
+            if (!inventionDto.getImageFile().isEmpty()) {
+                // Delete old image
+                String uploadDir = "public/images/";
+                Path oldImagePath = Paths.get(uploadDir + invention.getImageFileName());
+
+                try {
+                    Files.delete(oldImagePath);
+                } catch (Exception ex) {
+                    System.out.println("Exception: " + ex.getMessage());
+                }
+
+                // Save new image file
+                MultipartFile imageFile = inventionDto.getImageFile();
+                Date createdAt = new Date();
+                String storageFileName = createdAt.getTime() + " " + imageFile.getOriginalFilename();
+
+                try (InputStream inputStream = imageFile.getInputStream()) {
+                    Files.copy(inputStream, Paths.get(uploadDir + storageFileName), StandardCopyOption.REPLACE_EXISTING);
+                } catch (Exception ex) {
+                    System.out.println("Exception: " + ex.getMessage());
+                }
+
+                invention.setImageFileName(storageFileName);
+            }
+
+
+            invention.setName(inventionDto.getName());
+            invention.setCategory(inventionDto.getCategory());
+            invention.setPrice(inventionDto.getPrice());
+            invention.setDescription(inventionDto.getDescription());
+
+            repo.save(invention);
+
+
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
+
+        return "redirect:/inventions";
+    }
+
+
 
 }
 
