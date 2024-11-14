@@ -3,6 +3,7 @@
 package com.bccestari.rick_sanchez_store.controllers;
 
 import com.bccestari.rick_sanchez_store.models.Invention;
+import com.bccestari.rick_sanchez_store.models.InventionDto;
 import com.bccestari.rick_sanchez_store.services.InventionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -24,5 +25,13 @@ public class InventionsViewController {
             model.addAttribute("inventions", inventions);
             return "inventions/index";
         }
+
+        @GetMapping("/create")
+        public String showCreatePage(Model model){
+            InventionDto inventionDto = new InventionDto();
+            model.addAttribute("inventionDto", inventionDto);
+            return "inventions/CreateInvention";
+        }
+
 }
 
