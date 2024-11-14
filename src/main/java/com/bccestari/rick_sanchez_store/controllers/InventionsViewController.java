@@ -173,8 +173,30 @@ public class InventionsViewController {
 
         return "redirect:/inventions";
     }
+    
+    @GetMapping("/delete")
+    public String deleteInvention(
+            @RequestParam int id
+    ) {
 
+        try {
+            Invention invention = repo.findById(id).get();
 
+            // Delete invention image
+            Path imagePath = Paths.get("public/images/" + invention.getImageFileName());
 
+            try {
+                Files.delete(imagePath);
+            } catch (Exception ex) {
+                System.out.println("Exception: " + ex.getMessage());
+            }
+
+            // Delete the invention
+            repo.delete(invention);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
+
+        return "redirect:/inventions";
+    }
 }
-
