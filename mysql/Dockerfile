@@ -7,7 +7,9 @@ ENV MYSQL_DATABASE=rickstoredb \
     MYSQL_PASSWORD=${DB_PASSWORD} \
     MYSQL_ROOT_PASSWORD=rootpassword
 
-COPY ./rickstoredb-dump.sql /docker-entrypoint-initdb.d/
+
+COPY rickstoredb-dump.sql /docker-entrypoint-initdb.d/
+
 
 EXPOSE 3306
 
