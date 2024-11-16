@@ -6,6 +6,9 @@ WORKDIR /app
 
 COPY . /app
 
+RUN mvn -N io.takari:maven:wrapper
+
+
 RUN ./mvnw clean package -DskipTests
 
 # Expose the port your app will run on
