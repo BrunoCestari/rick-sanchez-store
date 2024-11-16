@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql-password
+      MYSQL_DATABASE: rickstoredb
+    ports:
+      - "3307:3306"
+    networks:
+      - app-network
+
+  springboot-app:
+    image: rick-sanchez-store
+    build:
+      context: .
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/rickstoredb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: mysql-password
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
