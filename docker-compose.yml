@@ -8,6 +8,9 @@ services:
       MYSQL_DATABASE: rickstoredb
     ports:
       - "3307:3306"
+    volumes:
+      - ./data/rickstoredb-dump.sql:/docker-entrypoint-initdb.d/rickstoredb-dump.sql
+
     networks:
       - app-network
 
