@@ -78,7 +78,7 @@ BEGIN
     SELECT last_modified INTO last_mod FROM last_modification WHERE id = 1;
 
     -- Check if more than 30 minutes have passed since last modification
-    IF TIMESTAMPDIFF(MINUTE, last_mod, CURRENT_TIMESTAMP) >= 30 THEN
+    IF TIMESTAMPDIFF(MINUTE, last_mod, CURRENT_TIMESTAMP) >= 180 THEN
         SET foreign_key_checks = 0;
         -- Reset table if inactive for more than 30 minutes
         TRUNCATE TABLE inventions;
