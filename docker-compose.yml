@@ -8,13 +8,23 @@ services:
       MYSQL_DATABASE: rickstoredb
     volumes:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
     ports:
       - "3307:3306"
     networks:
       - app-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 5s
 
   springboot-app:
     image: rick-sanchez-store
+    depends_on:
+      mysql:
+        condition: service_healthy
     build:
       context: .
 
@@ -23,8 +33,7 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: mysql-password
       SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - mysql
+
     ports:
       - "8080:8080"
     networks:
