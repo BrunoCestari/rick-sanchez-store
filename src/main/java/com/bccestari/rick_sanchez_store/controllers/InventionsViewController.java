@@ -48,7 +48,7 @@ public class InventionsViewController {
             @Valid @ModelAttribute InventionDto inventionDto,
             BindingResult result
     ) {
-        if (inventionDto.getImageFile().isEmpty()) {
+        if ( inventionDto.getImageFile() == null || inventionDto.getImageFile().isEmpty()) {
             result.addError(new FieldError("inventionDto", "imageFile", "The image file is required"));
         }
 
