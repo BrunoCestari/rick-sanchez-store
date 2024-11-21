@@ -23,7 +23,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Date;
 import java.util.List;
 @Controller
-@RequestMapping("/inventions")
+@RequestMapping({"/", "/inventions"})
 public class InventionsViewController {
         @Autowired
         private InventionsRepository repo;
