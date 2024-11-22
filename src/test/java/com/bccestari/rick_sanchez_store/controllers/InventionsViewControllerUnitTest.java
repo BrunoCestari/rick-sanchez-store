@@ -1,6 +1,5 @@
-package com.bccestari.rick_sanchez_store;
+package com.bccestari.rick_sanchez_store.controllers;
 
-import com.bccestari.rick_sanchez_store.controllers.InventionsViewController;
 import com.bccestari.rick_sanchez_store.models.Invention;
 import com.bccestari.rick_sanchez_store.services.InventionsRepository;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(InventionsViewController.class)
-public class InventionsViewControllerTest {
+public class InventionsViewControllerUnitTest {
 
     @Autowired
     private MockMvc mockMvc;
