@@ -60,6 +60,43 @@ docker-compose down
 ```
 
 
+### Without Docker (Manual Setup)
+
+If you prefer not to use Docker, you can set up the application manually by following these steps:
+
+1. Install MySQL:
+- Download and install MySQL from the official website: [MySQL Downloads](https://dev.mysql.com/downloads/https://dev.mysql.com/downloads/).
 
 
+- After installation, make sure to create a MySQL user `root` with the password `mysql-password`, and create the database `rickstoredb`.
 
+2.  Log in to the MySQL shell::
+
+  ``` 
+  mysql -u root -p
+  ```
+3. Create the `rickstoredb` database by running the following SQL command:
+  ```
+  CREATE DATABASE rickstoredb;
+  ```
+
+3.  Run  the init.sql file  to set up the tables and data (optional) :
+```
+mysql -u root -p -h 127.0.0.1 rickstoredb < ./sql/init.sql
+
+```
+4. Configure application.properties file:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/rickstoredb
+spring.datasource.username=root
+spring.datasource.password=mysql-password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+
+5. Build and run the Spring Boot application:
+```
+./mvnw clean package
+java -jar target/rick-sanchez-store-0.0.1-SNAPSHOT.jar
+```
+
+6. Access application at [localhost:8080](http://localhost:8080).
