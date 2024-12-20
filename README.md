@@ -16,15 +16,6 @@ Dive into Rick’s chaotic world of inventions with this Spring Boot app—creat
 
 
 
-## Adopted Practices
-
-- SOLID
-- Automated testing
-- Use of DTOs for data handling
-- Dependency Injection
-- Auditing of entity creation and updates
-- Frontend with Thymeleaf
-- Deployment on Render
 
 
 
