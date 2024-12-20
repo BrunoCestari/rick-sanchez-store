@@ -1,65 +1,26 @@
-
-table td {
-    vertical-align: middle;
-    padding: 10px;
-}
-
-td.name {
-    max-width: 120px; /* Limit width */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
-    white-space: normal; /* Allow text to wrap into multiple lines */
-    word-wrap: break-word; /* Allow long words to break */
-    min-width: 100px; /* Set a minimum width to avoid collapsing */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/WubbaLubbaDubDub.ttf') format('truetype');
+    font-display: swap;
 }
 
 
+h1.text-center.my-4 {
+    font-family: 'CustomFont', sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    color: #03b0c7 !important;  /* Use !important if needed */
+    -webkit-text-stroke: 1px #228b22; /* Solid dark green outline */
 
-td.description {
-    max-width: 250px; /* Limit width */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
-    white-space: normal; /* Allow text to wrap into multiple lines */
-    word-wrap: break-word; /* Allow long words to break */
-    min-width: 100px; /* Set a minimum width to avoid collapsing */
+    text-shadow:
+          2px 2px 0 #d1da4a,
+          -2px 2px 0 #d1da4a,
+          2px -2px 0 #d1da4a,
+          -2px -2px 0 #d1da4a,
+          2px 0px 0 #d1da4a,
+          -2px 0px 0 #d1da4a,
+          0px 2px 0 #d1da4a,
+          0px -2px 0 #d1da4a;      /* Yellowish-green shadow (wider) */
 }
 
 
-
-
-
-
-table td {
-    vertical-align: middle; /* Vertically center content in each td */
-}
-
-/* Style the action buttons container to display them vertically */
-td.actions {
-    width:100px;
-    height:300px;
-    display: flex;
-    flex-direction: column;   /* Stack buttons vertically */
-    align-items: center;      /* Center the buttons horizontally */
-    justify-content: center;  /* Center the buttons vertically */
-    gap: 4px;                 /* Optional: Add space between buttons */
-}
-/* Optional: style the buttons if needed */
-td.actions .btn {
-    width: 80px;             /* Fixed width - don't forget the semicolon! */
-    padding: 6px 12px;       /* Consistent padding */
-    font-size: 14px;         /* Same font size */
-    margin: 0;               /* No margin */
-    display: block;          /* Ensure block display */
-}
-
-/* Style for all images in the table */
-td img {
-    width: 250px;      /* Fixed width */
-    height: 200px;     /* Fixed height */
-    object-fit: cover; /* This maintains aspect ratio and covers the container */
-    display: block;    /* Removes any unwanted space below the image */
-    min-width: 200px;
-    max-width: 250px;
-}
-
-/* If you want to ensure the image cell doesn't grow larger than needed */
