@@ -3,6 +3,9 @@
 </h1>
 
 
+![ezgif-3-2ee89bdf6f](https://github.com/user-attachments/assets/50b002c2-38d2-4ef8-8d88-fe68c374379c)
+
+
 Dive into Rick’s chaotic world of inventions with this Spring Boot app—create, edit, and delete items that might just alter the universe!
 
 ## Technologies
