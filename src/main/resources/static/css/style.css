@@ -7,7 +7,7 @@
 
 h1.text-center.my-4 {
     font-family: 'CustomFont', sans-serif;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: 100;
     color: #03b0c7 !important;  /* Use !important if needed */
     -webkit-text-stroke: 1px #228b22; /* Solid dark green outline */
