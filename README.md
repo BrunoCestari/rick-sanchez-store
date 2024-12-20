@@ -3,9 +3,7 @@
 </h1>
 
 
-![ezgif-3-2ee89bdf6f](https://github.com/user-attachments/assets/50b002c2-38d2-4ef8-8d88-fe68c374379c)
-
-
+[![Alt text for the GIF](https://github.com/user-attachments/assets/9f756eac-98b0-4db6-bee8-456e45b95ff4)](https://rick-sanchez-store.onrender.com/)
 Dive into Rick’s chaotic world of inventions with this Spring Boot app—create, edit, and delete items that might just alter the universe!
 
 ## Technologies
