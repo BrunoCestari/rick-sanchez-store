@@ -17,7 +17,9 @@ Dive into Rick’s chaotic world of inventions with this Spring Boot app—creat
 - [Render](https://render.com/)
 
 
+## Overview
 
+Describe back and frontend
 
 
 
@@ -93,3 +95,10 @@ java -jar target/rick-sanchez-store-0.0.1-SNAPSHOT.jar
 ```
 
 6. Access application at [localhost:8080](http://localhost:8080).
+
+
+
+## Optimizations
+- Extract internal CSS into an external stylesheet for improved modularity and maintainability.- 
+- Get more initial data
+- Deploy on Render
