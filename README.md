@@ -1,12 +1,12 @@
 <h1 align="center">
-  Rick Sanchez Inventions Store 
+  Rick Sanchez Inventions Store: <a target="_blank" href="https://rick-sanchez-store.onrender.com/" >Visit Here</a>
 </h1>
 
 
 [![Alt text for the GIF](https://github.com/user-attachments/assets/c5989aea-3566-42fc-9461-6f7675e4986e)](https://rick-sanchez-store.onrender.com/)
     
 Dive into Rick’s chaotic world of inventions with this Spring Boot app—create, edit, and delete items that might just alter the universe!
-
+You can check it out here: [https://rick-sanchez-store.onrender.com/](https://rick-sanchez-store.onrender.com/)
 ## Technologies
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
@@ -15,12 +15,22 @@ Dive into Rick’s chaotic world of inventions with this Spring Boot app—creat
 - [Thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html)
 - [Docker](https://spring.io/guides/gs/spring-boot-docker)
 - [Render](https://render.com/)
+- [Aiven](https://aiven.io/)
+- [JUnit 5](https://junit.org/junit5/)
+- [MockMvc](https://spring.io/guides/gs/testing-web)
+- [Mockito](https://site.mockito.org/)
 
 
 ## Overview
+This project is built using **Spring Boot** for the backend, which handles the core logic, routing, and dependency management. **Spring MVC** is used to organize the application into models, views, and controllers.
 
-Describe back and frontend
+For data persistence, **Spring Data** connects to a **MySQL database** hosted on **Aiven**, offering a free MySQL service for storing and managing the data. The application is fully tested with unit and integration tests using **JUnit 5**, **MockMvc**, and **Mockito**.
 
+The app is containerized using **Docker** for easy deployment and is hosted on **Render**.
+
+On the frontend, **Thymeleaf** is used to render dynamic HTML pages.
+
+An initial SQL script `(sql/init.sql)` is used to populate the database with data and **includes triggers that automatically reset it every 10 minutes**, ensuring data hygiene and consistency.
 
 
 ## How to Run
@@ -99,6 +109,8 @@ java -jar target/rick-sanchez-store-0.0.1-SNAPSHOT.jar
 
 
 ## Optimizations
-- Extract internal CSS into an external stylesheet for improved modularity and maintainability.- 
-- Get more initial data
-- Deploy on Render
+- Extract internal CSS into an external stylesheet for improved modularity and maintainability. 
+- Try another styles
+- Get more data
+- Optimize data hygiene scripts
+- Migrate the MySQL database from Aiven to Render for better integration with the application hosting environment.
