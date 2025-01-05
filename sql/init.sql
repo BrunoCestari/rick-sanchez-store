@@ -80,6 +80,7 @@ INSERT INTO `inventions` (`id`, `category`, `created_at`, `description`, `name`,
 (36, 'Weapon', '2024-09-04 19:27:37.000000', 'A versatile whip with advanced technology for combat or utility purposes.', 'Whip', 18000, 'whip.jpg'),
 (37, 'Device', '2024-09-04 19:27:37.000000', 'Restraints that are completely invisible until activated, restricting movement without being seen. Perfect for stealthy captures.', 'Invisible Cuffs', 13760, '1734487813561 invisibility cuffs.png');
 
+
 /*!40000 ALTER TABLE `inventions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
