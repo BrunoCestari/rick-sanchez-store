@@ -7,6 +7,7 @@
 ](https://rick-sanchez-store.onrender.com/)
     
 Dive into Rick’s chaotic world of inventions with this Spring Boot app—create, edit, and delete items that might just alter the universe!
+
 You can check it out here: [https://rick-sanchez-store.onrender.com/](https://rick-sanchez-store.onrender.com/)
 ## Technologies
 
@@ -31,8 +32,7 @@ The app is containerized using **Docker** for easy deployment and is hosted on *
 
 On the frontend, **Thymeleaf** is used to render dynamic HTML pages.
 
-An initial SQL script `(sql/init.sql)` is used to populate the database with data and **includes triggers that automatically reset it every 10 minutes**, ensuring data hygiene and consistency.
-
+An initial SQL script (sql/init.sql) populates the database. **Triggers are configured to automatically reset the data every 10 minutes upon detecting any changes**, ensuring ongoing data hygiene and consistency.
 
 ## How to Run
 
