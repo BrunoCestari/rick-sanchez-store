@@ -3,7 +3,8 @@
 </h1>
 
 
-[![Alt text for the GIF](https://github.com/user-attachments/assets/c5989aea-3566-42fc-9461-6f7675e4986e)](https://rick-sanchez-store.onrender.com/)
+[![Alt text for the GIF](https://github.com/user-attachments/assets/accffb07-59b0-4854-b9ee-c8b660e8a6a6)
+](https://rick-sanchez-store.onrender.com/)
     
 Dive into Rick’s chaotic world of inventions with this Spring Boot app—create, edit, and delete items that might just alter the universe!
 You can check it out here: [https://rick-sanchez-store.onrender.com/](https://rick-sanchez-store.onrender.com/)
